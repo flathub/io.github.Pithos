@@ -1,0 +1,85 @@
+{
+  "app-id": "io.github.Pithos",
+  "runtime": "org.gnome.Platform",
+  "runtime-version": "3.24",
+  "sdk": "org.gnome.Sdk",
+  "command": "pithos",
+  "finish-args": [
+    "--share=ipc",
+    "--share=network",
+    "--socket=x11",
+    "--socket=wayland",
+    "--socket=pulseaudio",
+
+    "--env=SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt",
+
+    "--env=GST_PLUGIN_PATH_1_0=/app/lib/gstreamer-1.0",
+    "--talk-name=org.gtk.vfs",
+    "--talk-name=org.gtk.vfs.*",
+
+    "--env=DCONF_USER_CONFIG_DIR=.config/dconf",
+    "--filesystem=xdg-run/dconf",
+    "--filesystem=~/.config/dconf:ro",
+    "--talk-name=ca.desrt.dconf",
+    "--talk-name=org.freedesktop.secrets",
+
+    "--talk-name=org.freedesktop.Notifications",
+
+    "--talk-name=org.gnome.SettingsDaemon",
+    "--talk-name=org.mate.SettingsDaemon",
+
+    "--talk-name=org.gnome.ScreenSaver",
+    "--talk-name=org.cinnamon.ScreenSaver",
+    "--talk-name=org.freedesktop.ScreenSaver",
+    "--talk-name=com.canonical.Unity.Session",
+
+    "--own-name=org.mpris.MediaPlayer2.pithos",
+    "--own-name=net.kevinmehall.Pithos",
+    "--filesystem=/tmp"
+  ],
+  "modules": [
+    {
+      "name": "gst-libav",
+      "config-opts": [ "--disable-gtk-doc", "--with-system-libav" ],
+      "cleanup": [ "*.la", "/share/gtk-doc" ],
+      "sources": [{
+        "type": "archive",
+        "url": "https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.8.3.tar.xz",
+        "sha256": "9006a05990089f7155ee0e848042f6bb24e52ab1d0a59ff8d1b5d7e33001a495"
+      }],
+      "modules": [ "org.ffmpeg.FFmpeg.json" ]
+    },
+    {
+      "name": "pylast",
+      "buildsystem": "simple",
+      "build-commands": [
+        "pip3 install --prefix=/app pylast-1.8.0-py3-none-any.whl"
+      ],
+      "sources": [{
+        "type": "file",
+        "url": "https://dl.tingping.se/mirror/pylast-1.8.0-py3-none-any.whl",
+        "sha256": "98ffacaba10ba8e123c750993a24396d058d3e21e4d4f1e93f0dd085956457d3"
+      }],
+      "modules": [{
+        "name": "six",
+        "buildsystem": "simple",
+        "build-commands": [
+          "pip3 install --prefix=/app six-1.10.0-py2.py3-none-any.whl"
+        ],
+        "sources": [{
+          "type": "file",
+          "url": "https://pypi.python.org/packages/c8/0a/b6723e1bc4c516cb687841499455a8505b44607ab535be01091c0f24f079/six-1.10.0-py2.py3-none-any.whl#md5=3ab558cf5d4f7a72611d59a81a315dc8",
+          "sha256": "0ff78c403d9bccf5a425a6d31a12aa6b47f1c21ca4dc2573a7e2f32a97335eb1"
+        }]
+      }]
+    },
+    {
+      "name": "pithos",
+      "sources": [{
+        "type": "git",
+        "url": "https://github.com/pithos/pithos.git",
+        "branch": "1.3.0"
+      }]
+    }
+  ]
+}
