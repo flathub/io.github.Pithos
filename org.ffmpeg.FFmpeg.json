@@ -19,6 +19,7 @@
     "--enable-shared",
     "--disable-static",
     "--disable-everything",
+    "--disable-programs",
     "--enable-gnutls",
     "--enable-decoder=mp3",
     "--enable-decoder=aac"
