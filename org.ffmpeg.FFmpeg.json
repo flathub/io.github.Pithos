@@ -1,6 +1,6 @@
 {
   "name": "ffmpeg",
-  "cleanup": [ "/include", "/lib/pkgconfig", "/share/ffmpeg/examples" ],
+  "cleanup": [ "/include", "/lib/pkgconfig", "/share" ],
   "build-options" : {
     "arch" : {
       "i386" : {
@@ -16,11 +16,14 @@
     }
   },
   "config-opts": [
+    "--disable-all",
     "--enable-shared",
     "--disable-static",
-    "--disable-everything",
-    "--disable-programs",
     "--enable-gnutls",
+    "--enable-avfilter",
+    "--enable-avcodec",
+    "--enable-avformat",
+    "--enable-swscale",
     "--enable-decoder=mp3",
     "--enable-decoder=aac"
   ],
