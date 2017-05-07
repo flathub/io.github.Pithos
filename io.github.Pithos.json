@@ -86,6 +86,7 @@
     },
     {
       "name": "libappindicator",
+      "disabled": true,
       "rm-configure": true,
       "config-opts": ["--with-gtk=3", "--disable-static", "--disable-tests", "--disable-gtk-doc-html"],
       "cleanup": ["/include", "/lib/*.la", "/lib/pkgconfig", "/libexec", "/share"],
