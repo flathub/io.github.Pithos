@@ -1,0 +1,64 @@
+From 21e0c5e4fa26e11f5ec66e1b79272f90020daa1c Mon Sep 17 00:00:00 2001
+From: Patrick Griffis <tingping@tingping.se>
+Date: Sat, 6 May 2017 21:56:47 -0400
+Subject: [PATCH] Rename tray icon to match app-id
+
+---
+ Makefile.am                                                 |   8 ++++----
+ .../{pithos-tray-icon.png => io.github.Pithos-tray.png}     | Bin
+ .../{pithos-tray-icon.svg => io.github.Pithos-tray.svg}     |   0
+ .../{pithos-tray-icon.svg => io.github.Pithos-tray.svg}     |   0
+ .../{pithos-tray-icon.svg => io.github.Pithos-tray.svg}     |   0
+ 5 files changed, 4 insertions(+), 4 deletions(-)
+ rename data/icons/hicolor/48x48/apps/{pithos-tray-icon.png => io.github.Pithos-tray.png} (100%)
+ rename data/icons/hicolor/scalable/apps/{pithos-tray-icon.svg => io.github.Pithos-tray.svg} (100%)
+ rename data/icons/ubuntu-mono-dark/16x16/apps/{pithos-tray-icon.svg => io.github.Pithos-tray.svg} (100%)
+ rename data/icons/ubuntu-mono-light/16x16/apps/{pithos-tray-icon.svg => io.github.Pithos-tray.svg} (100%)
+
+diff --git a/Makefile.am b/Makefile.am
+index 05ebe21..0c5e1cb 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -71,19 +71,19 @@ appstream_XML = $(appstream_in_files:.xml.in=.xml)
+ 
+ hicolor_scalabledir = $(datadir)/icons/hicolor/scalable/apps
+ hicolor_scalable_DATA = data/icons/hicolor/scalable/apps/io.github.Pithos.svg \
+-                        data/icons/hicolor/scalable/apps/pithos-tray-icon.svg
++                        data/icons/hicolor/scalable/apps/io.github.Pithos-tray.svg
+ 
+ hicolordir = $(datadir)/icons/hicolor/48x48/apps
+-hicolor_DATA = data/icons/hicolor/48x48/apps/pithos-tray-icon.png
++hicolor_DATA = data/icons/hicolor/48x48/apps/io.github.Pithos-tray.png
+ 
+ symbolicdir = $(datadir)/icons/hicolor/symbolic/apps
+ symbolic_DATA = data/icons/hicolor/symbolic/apps/io.github.Pithos-symbolic.svg
+ 
+ ubuntu_lightdir = $(datadir)/icons/ubuntu-mono-light/16x16/apps
+-ubuntu_light_DATA = data/icons/ubuntu-mono-light/16x16/apps/pithos-tray-icon.svg
++ubuntu_light_DATA = data/icons/ubuntu-mono-light/16x16/apps/io.github.Pithos-tray.svg
+ 
+ ubuntu_darkdir = $(datadir)/icons/ubuntu-mono-dark/16x16/apps
+-ubuntu_dark_DATA = data/icons/ubuntu-mono-dark/16x16/apps/pithos-tray-icon.svg
++ubuntu_dark_DATA = data/icons/ubuntu-mono-dark/16x16/apps/io.github.Pithos-tray.svg
+ 
+ UPDATE_ICON_CACHE = gtk-update-icon-cache -f -t $(datadir)/icons/hicolor || :
+ 
+diff --git a/data/icons/hicolor/48x48/apps/pithos-tray-icon.png b/data/icons/hicolor/48x48/apps/io.github.Pithos-tray.png
+similarity index 100%
+rename from data/icons/hicolor/48x48/apps/pithos-tray-icon.png
+rename to data/icons/hicolor/48x48/apps/io.github.Pithos-tray.png
+diff --git a/data/icons/hicolor/scalable/apps/pithos-tray-icon.svg b/data/icons/hicolor/scalable/apps/io.github.Pithos-tray.svg
+similarity index 100%
+rename from data/icons/hicolor/scalable/apps/pithos-tray-icon.svg
+rename to data/icons/hicolor/scalable/apps/io.github.Pithos-tray.svg
+diff --git a/data/icons/ubuntu-mono-dark/16x16/apps/pithos-tray-icon.svg b/data/icons/ubuntu-mono-dark/16x16/apps/io.github.Pithos-tray.svg
+similarity index 100%
+rename from data/icons/ubuntu-mono-dark/16x16/apps/pithos-tray-icon.svg
+rename to data/icons/ubuntu-mono-dark/16x16/apps/io.github.Pithos-tray.svg
+diff --git a/data/icons/ubuntu-mono-light/16x16/apps/pithos-tray-icon.svg b/data/icons/ubuntu-mono-light/16x16/apps/io.github.Pithos-tray.svg
+similarity index 100%
+rename from data/icons/ubuntu-mono-light/16x16/apps/pithos-tray-icon.svg
+rename to data/icons/ubuntu-mono-light/16x16/apps/io.github.Pithos-tray.svg
+-- 
+2.12.2
+
