@@ -1,4 +1,4 @@
-From 21e0c5e4fa26e11f5ec66e1b79272f90020daa1c Mon Sep 17 00:00:00 2001
+From 887b8971f7fd8b453c7967a11e017945d52fc702 Mon Sep 17 00:00:00 2001
 From: Patrick Griffis <tingping@tingping.se>
 Date: Sat, 6 May 2017 21:56:47 -0400
 Subject: [PATCH] Rename tray icon to match app-id
@@ -9,7 +9,8 @@ Subject: [PATCH] Rename tray icon to match app-id
  .../{pithos-tray-icon.svg => io.github.Pithos-tray.svg}     |   0
  .../{pithos-tray-icon.svg => io.github.Pithos-tray.svg}     |   0
  .../{pithos-tray-icon.svg => io.github.Pithos-tray.svg}     |   0
- 5 files changed, 4 insertions(+), 4 deletions(-)
+ pithos/plugins/notification_icon.py                         |   6 +++---
+ 6 files changed, 7 insertions(+), 7 deletions(-)
  rename data/icons/hicolor/48x48/apps/{pithos-tray-icon.png => io.github.Pithos-tray.png} (100%)
  rename data/icons/hicolor/scalable/apps/{pithos-tray-icon.svg => io.github.Pithos-tray.svg} (100%)
  rename data/icons/ubuntu-mono-dark/16x16/apps/{pithos-tray-icon.svg => io.github.Pithos-tray.svg} (100%)
@@ -59,6 +60,27 @@ diff --git a/data/icons/ubuntu-mono-light/16x16/apps/pithos-tray-icon.svg b/data
 similarity index 100%
 rename from data/icons/ubuntu-mono-light/16x16/apps/pithos-tray-icon.svg
 rename to data/icons/ubuntu-mono-light/16x16/apps/io.github.Pithos-tray.svg
--- 
-2.12.2
-
+diff --git a/pithos/plugins/notification_icon.py b/pithos/plugins/notification_icon.py
+index 2a7d8e2..d6247a0 100644
+--- a/pithos/plugins/notification_icon.py
++++ b/pithos/plugins/notification_icon.py
+@@ -41,8 +41,8 @@ class PithosNotificationIcon(PithosPlugin):
+ 
+     def on_prepare(self):
+         if indicator_capable:
+-            self.ind = AppIndicator.Indicator.new("pithos-tray-icon",
+-                                                  "pithos-tray-icon",
++            self.ind = AppIndicator.Indicator.new("io.github.Pithos-tray",
++                                                  "io.github.Pithos-tray",
+                                                   AppIndicator.IndicatorCategory.APPLICATION_STATUS)
+             # FIXME: AppIndicator might be falling back to XEmbed
+         elif not backend_is_supported(self.window):
+@@ -56,7 +56,7 @@ def on_enable(self):
+         if indicator_capable:
+             self.ind.set_status(AppIndicator.IndicatorStatus.ACTIVE)
+         else:
+-            self.statusicon = Gtk.StatusIcon.new_from_icon_name('pithos-tray-icon')
++            self.statusicon = Gtk.StatusIcon.new_from_icon_name('io.github.Pithos-tray')
+             self.statusicon.connect('activate', self._toggle_visible)
+ 
+         self.build_context_menu()
