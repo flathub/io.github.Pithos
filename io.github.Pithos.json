@@ -1,17 +1,15 @@
 {
   "app-id": "io.github.Pithos",
   "runtime": "org.gnome.Platform",
-  "runtime-version": "3.28",
+  "runtime-version": "3.30",
   "sdk": "org.gnome.Sdk",
   "command": "pithos",
   "finish-args": [
     "--share=ipc",
     "--share=network",
-    "--socket=x11",
+    "--socket=fallback-x11",
     "--socket=wayland",
     "--socket=pulseaudio",
-
-    "--env=GST_PLUGIN_PATH_1_0=/app/lib/gstreamer-1.0",
 
     "--env=DCONF_USER_CONFIG_DIR=.config/dconf",
     "--filesystem=xdg-run/dconf",
@@ -24,13 +22,7 @@
     "--talk-name=org.gnome.SettingsDaemon.MediaKeys",
     "--talk-name=org.mate.SettingsDaemon",
 
-    "--talk-name=org.gnome.ScreenSaver",
-    "--talk-name=org.cinnamon.ScreenSaver",
-    "--talk-name=org.freedesktop.ScreenSaver",
-    "--talk-name=com.canonical.Unity.Session",
-
     "--talk-name=org.kde.StatusNotifierWatcher",
-    "--talk-name=com.canonical.indicator.application",
 
     "--own-name=org.mpris.MediaPlayer2.pithos"
   ],
@@ -47,8 +39,8 @@
       ],
       "sources": [{
         "type": "archive",
-        "url": "https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.14.0.tar.xz",
-        "sha256": "ed5e2badb6f2858f60017b93334d91fe58a0e3f85ed2f37f2e931416fafb4f9f"
+        "url": "https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.14.4.tar.xz",
+        "sha256": "910b4e0e2e897e8b6d06767af1779d70057c309f67292f485ff988d087aa0de5"
       }],
       "modules": [{
         "name": "faad",
@@ -63,7 +55,6 @@
           },
           {
             "type": "script",
-            "dest-filename": "autogen.sh",
             "commands": [ "exec ./bootstrap \"$@\"" ]
           }
         ]}
@@ -87,6 +78,10 @@
           "type": "archive",
           "url": "https://github.com/pithos/pithos/releases/download/1.4.1/pithos-1.4.1.tar.xz",
           "sha256": "ebc30213ae85716d5a57e30b912f083b2fdb374a793d5adfec00a064fdfc165c"
+        },
+        {
+          "type": "patch",
+          "path": "2c9075b256c3b5c507ab90fcd51496068eb79d92.patch"
         }
       ]
     }
