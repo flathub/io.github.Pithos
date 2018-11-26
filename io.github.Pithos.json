@@ -1,5 +1,6 @@
 {
   "app-id": "io.github.Pithos",
+  "branch": "stable",
   "runtime": "org.gnome.Platform",
   "runtime-version": "3.30",
   "sdk": "org.gnome.Sdk",
@@ -17,8 +18,6 @@
     "--filesystem=~/.config/dconf:ro",
     "--talk-name=ca.desrt.dconf",
     "--talk-name=org.freedesktop.secrets",
-
-    "--talk-name=org.freedesktop.Notifications",
 
     "--talk-name=org.gnome.SettingsDaemon.MediaKeys",
     "--talk-name=org.mate.SettingsDaemon",
@@ -83,6 +82,14 @@
         {
           "type": "patch",
           "path": "2c9075b256c3b5c507ab90fcd51496068eb79d92.patch"
+        },
+        {
+          "type": "patch",
+          "path": "8d05b337c237a0a5fccfe3553b792e65e4f62084.patch"
+        },
+        {
+          "type": "patch",
+          "path": "0d493f0403e00a2fa81fbd10683ac1efd0b14f5b.patch"
         }
       ]
     }
