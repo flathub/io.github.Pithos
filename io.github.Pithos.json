@@ -1,8 +1,7 @@
 {
   "app-id": "io.github.Pithos",
-  "branch": "stable",
   "runtime": "org.gnome.Platform",
-  "runtime-version": "3.30",
+  "runtime-version": "3.34",
   "sdk": "org.gnome.Sdk",
   "command": "pithos",
   "finish-args": [
@@ -13,10 +12,8 @@
     "--socket=wayland",
     "--socket=pulseaudio",
 
-    "--env=DCONF_USER_CONFIG_DIR=.config/dconf",
-    "--filesystem=xdg-run/dconf",
-    "--filesystem=~/.config/dconf:ro",
-    "--talk-name=ca.desrt.dconf",
+    "--metadata=X-DConf=migrate-path=/io/github/Pithos/",
+
     "--talk-name=org.freedesktop.secrets",
 
     "--talk-name=org.gnome.SettingsDaemon.MediaKeys",
@@ -27,39 +24,9 @@
     "--own-name=org.mpris.MediaPlayer2.pithos"
   ],
   "modules": [
+    "shared-modules/dbus-glib/dbus-glib-0.110.json",
     "shared-modules/libappindicator/libappindicator-gtk3-introspection-12.10.json",
     "python3-pylast.json",
-    {
-      "name": "gst-plugins-bad",
-      "buildsystem": "meson",
-      "no-make-install": true,
-      "make-args": ["ext/faad/libgstfaad.so"],
-      "post-install": [
-        "install -Dm644 --target-directory=/app/lib/gstreamer-1.0 ext/faad/libgstfaad.so"
-      ],
-      "sources": [{
-        "type": "archive",
-        "url": "https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.14.4.tar.xz",
-        "sha256": "910b4e0e2e897e8b6d06767af1779d70057c309f67292f485ff988d087aa0de5"
-      }],
-      "modules": [{
-        "name": "faad",
-        "cleanup": [ "/bin", "/include", "/share", "/lib/*.la" ],
-        "config-opts": [ "--disable-static", "--without-drm" ],
-        "post-install": [ "rm /app/lib/libfaad_drm*" ],
-        "sources": [
-          {
-            "type": "archive",
-            "url": "http://downloads.sourceforge.net/sourceforge/faac/faad2-2.8.8.tar.gz",
-            "sha256": "985c3fadb9789d2815e50f4ff714511c79c2710ac27a4aaaf5c0c2662141426d"
-          },
-          {
-            "type": "script",
-            "commands": [ "exec ./bootstrap \"$@\"" ]
-          }
-        ]}
-      ]
-    },
     {
       "name": "keybinder",
       "cleanup": ["/lib/*.la", "/include", "/share", "/lib/pkgconfig"],
