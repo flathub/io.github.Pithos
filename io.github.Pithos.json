@@ -57,6 +57,10 @@
         {
           "type": "patch",
           "path": "0d493f0403e00a2fa81fbd10683ac1efd0b14f5b.patch"
+        },
+        {
+          "type": "patch",
+          "path": "a1b24e64f11dfc6863b877add7f2450974f0d13c.patch"
         }
       ]
     }
