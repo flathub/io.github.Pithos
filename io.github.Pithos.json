@@ -19,9 +19,7 @@
     "--talk-name=org.gnome.SettingsDaemon.MediaKeys",
     "--talk-name=org.mate.SettingsDaemon",
 
-    "--talk-name=org.kde.StatusNotifierWatcher",
-
-    "--own-name=org.mpris.MediaPlayer2.pithos"
+    "--talk-name=org.kde.StatusNotifierWatcher"
   ],
   "modules": [
     "shared-modules/dbus-glib/dbus-glib-0.110.json",
@@ -43,24 +41,8 @@
       "sources": [
         {
           "type": "archive",
-          "url": "https://github.com/pithos/pithos/releases/download/1.4.1/pithos-1.4.1.tar.xz",
-          "sha256": "ebc30213ae85716d5a57e30b912f083b2fdb374a793d5adfec00a064fdfc165c"
-        },
-        {
-          "type": "patch",
-          "path": "2c9075b256c3b5c507ab90fcd51496068eb79d92.patch"
-        },
-        {
-          "type": "patch",
-          "path": "8d05b337c237a0a5fccfe3553b792e65e4f62084.patch"
-        },
-        {
-          "type": "patch",
-          "path": "0d493f0403e00a2fa81fbd10683ac1efd0b14f5b.patch"
-        },
-        {
-          "type": "patch",
-          "path": "a1b24e64f11dfc6863b877add7f2450974f0d13c.patch"
+          "url": "https://github.com/pithos/pithos/releases/download/1.5.0/pithos-1.5.0.tar.xz",
+          "sha256": "61e2a778252358519979ea53ab9fb9dd10a9554d24f3e249560bc4971f386133"
         }
       ]
     }
