@@ -42,7 +42,7 @@
         {
           "type": "git",
           "url": "https://github.com/pithos/pithos.git",
-          "commit": "31f9aad016319ece1451b83d50af756d68eda361"
+          "commit": "1.5.1"
         }
       ]
     }
