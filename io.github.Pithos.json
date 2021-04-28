@@ -67,8 +67,8 @@
       "sources": [
         {
           "type": "git",
-          "url": "https://github.com/pithos/pithos.git",
-          "commit": "1.5.1"
+          "url": "https://github.com/rcalixte/pithos.git",
+          "commit": "f3bd29e776c1a58b088ca66bfb2eb263ed5f412e"
         }
       ]
     }
