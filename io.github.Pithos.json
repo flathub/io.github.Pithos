@@ -1,7 +1,7 @@
 {
-  "app-id": "io.github.Pithos",
+  "id": "io.github.Pithos",
   "runtime": "org.gnome.Platform",
-  "runtime-version": "43",
+  "runtime-version": "45",
   "sdk": "org.gnome.Sdk",
   "command": "pithos",
   "finish-args": [
@@ -82,6 +82,10 @@
           "type": "git",
           "url": "https://github.com/pithos/pithos.git",
           "commit": "1.6.0"
+        },
+        {
+          "type": "patch",
+          "path": "1a0ec2111b26ecec8bab682728ec7e10bbab3631.patch"
         }
       ]
     }
