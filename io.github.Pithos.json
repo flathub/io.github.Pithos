@@ -81,11 +81,7 @@
         {
           "type": "git",
           "url": "https://github.com/pithos/pithos.git",
-          "commit": "1.6.0"
-        },
-        {
-          "type": "patch",
-          "path": "1a0ec2111b26ecec8bab682728ec7e10bbab3631.patch"
+          "commit": "1.6.1"
         }
       ]
     }
