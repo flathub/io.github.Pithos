@@ -79,9 +79,9 @@
       ],
       "sources": [
         {
-          "type": "git",
-          "url": "https://github.com/pithos/pithos.git",
-          "commit": "1.6.1"
+          "type": "archive",
+          "url": "https://github.com/pithos/pithos/archive/refs/tags/1.6.2.tar.gz",
+          "sha256": "69fffb5af07787eaf603d9e63b6facf25cc41760109dee5a92514354edd1068d"
         }
       ]
     }
